@@ -1,9 +1,11 @@
 {{#if isPatch~}}
-## Changes in `@uirouter/core` between versions
+## {{version}} ({{date}})
 {{~else~}}
-# Changes in `@uirouter/core` between versions
-{{~/if}} {{#if @root.linkCompare~}}
-  [{{previousTag}} and {{currentTag}}](
+# {{version}} ({{date}})
+{{~/if}} 
+
+{{#if @root.linkCompare~}}
+  [Compare `{{@root.packageData.name}}` versions {{previousTag}} and {{currentTag}}](
   {{~#if @root.repository~}}
     {{~#if @root.host}}
       {{~@root.host}}/
@@ -21,5 +23,3 @@
 {{~/if}}
 {{~#if title}} "{{title}}"
 {{~/if}}
-{{~#if date}} ({{date}})
-{{/if}}

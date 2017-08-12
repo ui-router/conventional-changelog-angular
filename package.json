@@ -1,6 +1,6 @@
 {
   "name": "conventional-changelog-ui-router-core",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "conventional-changelog ui-router-core preset",
   "main": "index.js",
   "scripts": {
