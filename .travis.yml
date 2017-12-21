@@ -1,10 +1,15 @@
 language: node_js
 node_js:
-  - '6'
-  - '5'
-  - '4'
-  - '0.12'
+- '6'
+- '5'
+- '4'
+- '0.12'
 before_script:
-  - git config --global user.name 'Travis-CI'
-  - git config --global user.email 'dummy@example.org'
-after_script: NODE_ENV=test istanbul cover -x test.js ./node_modules/mocha/bin/_mocha -- -R spec --timeout 30000 && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+- git config --global user.name 'Travis-CI'
+- git config --global user.email 'dummy@example.org'
+after_script: NODE_ENV=test istanbul cover -x test.js ./node_modules/mocha/bin/_mocha
+  -- -R spec --timeout 30000 && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  && rm -rf ./coverage
+notifications:
+  slack:
+    secure: u4k9tTE8yEMwOcZCt+evT68cn6mN93NGLWwzDvseogqgNHFXHp3b8MrE2Qg+ULf3F1M7OBUc2v7xL/pOvEaJQZHC3YNuWJBU57fFgZvnWI+EOEfHT1TyQKuEinliwZmaDX4lTPJUHIq+OsbF8/ReNt5n03oQfMKjsf15dJCvQd6AKaupYDC61G842ESfsuqC6FdV5biPmgIWKfegKRld/LmLDZqgL6cpoj/YHneuJOPgkBAEMOuVJUBYDglM+SgfvRXAiddpkkPaVwmdUzBoYVq7KAWkloC7e5ZZx83+U1UK4bE/VmIk1nPJZl1pmT6uPTPs5oRLQJFLaBRv8VqDMGTGqoE53hL/ETK6amngDeyXmW93aZRwAGRoKEftkjCPfZl+UKc6Nq4rkXGU1PEOuyE5uIWVDk3qwBVSqsOShWPZN0L3qOQ6wq/GEBVxneOl/AcTde0v5+3XUPPxpa0uTfsKDKjJjH9M37Tt+kMUvglv94e7tSNuv5ig7PM3azyCFZeb8jgzn79mRVRHEU3HXhBRMEVa9tLFYD2+nkx+JnEDQltHq8/X/FWkAoAdr4E8ezVxobceSAplkgmUmgxB83pht/bwJk3SBUZfS+gAnfmer5ujFxYHc5/LJvP23Qs6ujJDV6nf85mYdmMNhY2BK2IDV2BNmlbfNd8pZCtnMTw=
